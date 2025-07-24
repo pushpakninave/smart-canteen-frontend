@@ -1,5 +1,6 @@
 # Smart Canteen 
 - Introduction
+- FeaturesS
 - setup 
 - other links
 
