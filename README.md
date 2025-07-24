@@ -1,5 +1,6 @@
 # Smart Canteen 
 - Introduction
+Contains code of Front End part of Smart Canteen Project
 - setup 
 - other links
 
