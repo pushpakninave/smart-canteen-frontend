@@ -1,0 +1,725 @@
+/* src/styles/App.css */
+
+/* Global/Base Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Using Inter font as per guidelines, or a good fallback */
+  background-color: #f0f2f5; /* A light gray background */
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Main App Container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f2f5; /* Match body background */
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: #1a73e8; /* A shade of blue for the navbar */
+  padding: 1rem;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 8px; /* Rounded corners */
+  border-bottom-right-radius: 8px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar ul.left-links {
+  gap: 1.5rem; /* Increased gap for better spacing */
+}
+
+.navbar ul.right-links {
+  gap: 1.5rem; /* Increased gap for better spacing */
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 0.75rem; /* Add padding for better click/tap area */
+  border-radius: 5px; /* Rounded corners for links */
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
+  text-decoration: none; /* Remove underline on hover as background changes */
+}
+
+.navbar button {
+  background-color: #dc3545; /* Red for logout */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add shadow for button depth */
+}
+
+.navbar button:hover {
+  background-color: #c82333;
+  transform: translateY(-1px); /* Slight lift on hover */
+}
+
+.welcome-message {
+    color: white;
+    font-weight: bold;
+    margin-right: 1rem;
+    padding: 0.5rem 0; /* Align with links */
+}
+
+/* Main Content Area */
+.main-content {
+  flex-grow: 1;
+  padding: 1.5rem; /* Increased padding */
+}
+
+/* Optional Footer */
+.footer {
+  background-color: #0d47a1; /* Darker blue for footer */
+  color: white;
+  text-align: center;
+  padding: 1rem; /* Increased padding */
+  margin-top: auto;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 8px; /* Rounded corners */
+  border-top-right-radius: 8px;
+}
+
+/* Login/Register Page Styling */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+}
+
+.auth-card {
+  background-color: white;
+  padding: 2.5rem; /* Increased padding */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+  width: 100%;
+  max-width: 450px; /* Slightly wider */
+  text-align: center;
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.auth-card h2 {
+  font-size: 2rem; /* Larger heading */
+  font-weight: bold;
+  margin-bottom: 2rem; /* More space below heading */
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.25rem; /* More space between form groups */
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem; /* More space below label */
+  font-weight: bold;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem; /* More padding in input */
+  border: 1px solid #ccc;
+  border-radius: 6px; /* Rounded input fields */
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #1a73e8; /* Blue border on focus */
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2); /* Subtle blue shadow on focus */
+    outline: none; /* Remove default outline */
+}
+
+.auth-button {
+  background-color: #007bff; /* Blue for login */
+  color: white;
+  border: none;
+  padding: 0.85rem 1.5rem; /* More padding */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.05rem; /* Slightly larger font */
+  font-weight: bold;
+  width: 100%;
+  margin-top: 1.5rem; /* More space above button */
+  transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.auth-button.register {
+  background-color: #28a745; /* Green for register */
+}
+
+.auth-button:hover {
+  opacity: 0.95;
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.error-message {
+  color: #dc3545; /* Red for error messages */
+  margin-top: 1.5rem; /* More space above message */
+  font-size: 0.95rem;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem;
+  border-radius: 5px;
+}
+
+.auth-link {
+  display: block;
+  margin-top: 1.5rem; /* More space above link */
+  font-size: 0.95rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* Home Page Styling */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  max-width: 700px; /* Wider home container */
+  margin: 2.5rem auto; /* Center with more margin */
+  text-align: center;
+}
+
+.home-title {
+  font-size: 2.5rem; /* Larger title */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.home-text {
+  font-size: 1.2rem; /* Larger text */
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Food Items Container */
+.food-items-container {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.food-items-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.info-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #c3e6cb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Reusing for general error messages */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.loading-message, .no-items-message {
+  text-align: center;
+  padding: 1rem;
+  color: #555;
+}
+
+/* Add Food Button */
+.add-food-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  display: block; /* Make it a block element to take full width or center */
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.add-food-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Food Form Card */
+.food-form-card {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  border: 1px solid #eee;
+}
+
+.food-form-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.food-form-card .form-group {
+  margin-bottom: 1rem;
+}
+
+.food-form-card .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.food-form-card .form-group input[type="text"],
+.food-form-card .form-group input[type="number"],
+.food-form-card .form-group textarea {
+  width: calc(100% - 1.5rem); /* Account for padding */
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.food-form-card .form-group input:focus,
+.food-form-card .form-group textarea:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+    outline: none;
+}
+
+.food-form-card .form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.food-form-card .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.food-form-card .checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.food-form-card .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.food-form-card .save-button,
+.food-form-card .cancel-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.food-form-card .save-button {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+.food-form-card .save-button:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.food-form-card .cancel-button {
+    background-color: #6c757d; /* Gray */
+    color: white;
+}
+.food-form-card .cancel-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+
+/* Food Items Grid */
+.food-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.food-item-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.food-item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.food-item-card h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.food-item-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.food-item-card .availability-status {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+.food-item-card .availability-status.available {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.food-item-card .availability-status.not-available {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.manager-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.manager-actions button {
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.manager-actions .edit-button {
+  background-color: #ffc107; /* Yellow/Orange */
+  color: #343a40;
+}
+.manager-actions .edit-button:hover {
+  background-color: #e0a800;
+  transform: translateY(-1px);
+}
+
+.manager-actions .delete-button {
+  background-color: #dc3545; /* Red */
+  color: white;
+}
+.manager-actions .delete-button:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.manager-actions .toggle-button {
+  background-color: #17a2b8; /* Cyan */
+  color: white;
+}
+.manager-actions .toggle-button:hover {
+  background-color: #138496;
+  transform: translateY(-1px);
+}
+
+.student-actions {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.student-actions .order-button {
+    background-color: #28a745; /* Green for order */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.student-actions .order-button:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* My Orders Page Styling */
+.my-orders-container {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.my-orders-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.orders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.order-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.order-card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.order-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0.4rem;
+}
+
+.order-card h4 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #444;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3rem;
+}
+
+.order-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.order-items-list li {
+    margin-bottom: 0.2rem;
+    color: #555;
+}
+
+.order-status {
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+
+/* Status specific colors */
+.order-status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+.order-status.preparing {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+.order-status.ready {
+    background-color: #d4edda;
+    color: #155724;
+}
+.order-status.delivered {
+    background-color: #cce5ff;
+    color: #004085;
+}
+.order-status.cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.order-actions {
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.order-actions .pay-now-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.order-actions .pay-now-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* My Payments Page Styling */
+.my-payments-container, .all-payments-container {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.my-payments-title, .all-payments-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.payments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.payment-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.payment-card h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.payment-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0.4rem;
+}
+
+.payment-status {
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+
+/* Payment status specific colors (example, adjust as per your backend statuses) */
+.payment-status.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+.payment-status.failed {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.payment-status.pending_payment { /* If you have a pending payment status */
+    background-color: #fff3cd;
+    color: #856404;
+}
